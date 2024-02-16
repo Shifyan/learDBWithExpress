@@ -1,4 +1,6 @@
 const express = require('express');
+const { loadDatabase } = require('./utils/dataLogic');
+
 const app = express();
 const port = 3000;
 
@@ -9,7 +11,9 @@ app.set('view engine', 'ejs');
 app.use(express.static('public'));
 
 app.get('/', (req, res) => {
-	res.render('home');
+	let database = loadDatabase();
+	// console.log(database[0].nama);
+	res.render('home', { database });
 });
 
 app.listen(port, () => {
