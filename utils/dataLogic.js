@@ -11,6 +11,4 @@ const loadDatabase = () => {
 	return dataFromJson;
 };
 
-// console.log(loadDatabase());
-
 module.exports = { loadDatabase };

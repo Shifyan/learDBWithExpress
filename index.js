@@ -12,7 +12,6 @@ app.use(express.static('public'));
 
 app.get('/', (req, res) => {
 	let database = loadDatabase();
-	// console.log(database[0].nama);
 	res.render('home', { database });
 });
 
