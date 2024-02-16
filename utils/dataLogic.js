@@ -11,4 +11,14 @@ const loadDatabase = () => {
 	return dataFromJson;
 };
 
-module.exports = { loadDatabase };
+const findData = (nama) => {
+	const data = loadDatabase();
+	const myData = data.find(
+		(data) => data.nama.toLowerCase() === nama.toLowerCase(),
+	);
+	return myData;
+};
+
+// console.log(findData('Shifyan'));
+
+module.exports = { loadDatabase, findData };
