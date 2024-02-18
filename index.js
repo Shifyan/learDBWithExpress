@@ -13,6 +13,10 @@ app.get('/home', (req, res) => {
 	res.render('home', { database });
 });
 
+app.get('/addData', (req, res) => {
+	res.render('addData');
+});
+
 app.get('/home/:nama', (req, res) => {
 	let myData = findData(req.params.nama);
 	// console.log(req.params.nama);
