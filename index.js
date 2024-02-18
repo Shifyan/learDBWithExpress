@@ -1,5 +1,5 @@
 const express = require('express');
-const { loadDatabase, findData } = require('./utils/dataLogic');
+const { loadDatabase, findData, addData } = require('./utils/dataLogic');
 const path = require('path');
 
 const app = express();
@@ -18,12 +18,13 @@ app.get('/addData', (req, res) => {
 	res.render('addData');
 });
 app.post('/home', (req, res) => {
-	console.log(req.body);
-	res.send('Data Dikirim');
+	let rawData = req.body;
+	const newData = Object.assign({}, rawData);
+	addData(newData);
+	res.render('inputSuccess');
 });
 app.get('/home/:nama', (req, res) => {
 	let myData = findData(req.params.nama);
-	// console.log(req.params.nama);
 	res.render('dataDetail', { myData });
 });
 

@@ -19,6 +19,13 @@ const findData = (nama) => {
 	return myData;
 };
 
-// console.log(findData('Shifyan'));
+const saveData = (data) => {
+	fs.writeFileSync(dataPath, JSON.stringify(data));
+};
 
-module.exports = { loadDatabase, findData };
+const addData = (data) => {
+	const oldData = loadDatabase();
+	oldData.push(data);
+	saveData(oldData);
+};
+module.exports = { loadDatabase, findData, addData };
