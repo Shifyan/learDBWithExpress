@@ -25,35 +25,37 @@
 		>
 			<div class="row">
 				<div class="col">
-					<form class="mb-5 mt-5 ms-5 me-5">
+					<form class="mb-5 mt-5 ms-5 me-5" method="post" action="/home">
 						<h4>Tambahkan Data</h4>
 						<div class="mb-3">
-							<label for="exampleInputEmail1" class="form-label">Nama :</label>
+							<label for="nama" class="form-label">Nama :</label>
 							<input
 								type="text"
 								class="form-control"
-								id="exampleInputEmail1"
-								aria-describedby="emailHelp"
+								id="nama"
+								aria-describedby="nama"
+								required
+								name="nama"
 							/>
 						</div>
 						<div class="mb-3">
-							<label for="exampleInputPassword1" class="form-label"
-								>Alamat :</label
-							>
+							<label for="alamat" class="form-label">Alamat :</label>
 							<input
 								type="text"
 								class="form-control"
-								id="exampleInputPassword1"
+								id="alamat"
+								name="alamat"
+								required
 							/>
 						</div>
 						<div class="mb-3">
-							<label for="exampleInputPassword1" class="form-label"
-								>Nomor HP :</label
-							>
+							<label for="noHp" class="form-label">Nomor HP :</label>
 							<input
 								type="text"
 								class="form-control"
-								id="exampleInputPassword1"
+								id="noHp"
+								name="noHp"
+								required
 							/>
 						</div>
 						<div class="position-relative">
