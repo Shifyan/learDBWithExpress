@@ -1,7 +1,1 @@
-[
-	{ "nama": "Shifyan", "alamat": "Badegan", "noHp": "09203123" },
-	{ "nama": "Ahmad", "alamat": "Jambon", "noHp": "230359204" },
-	{ "nama": "Mahmud", "alamat": "Bandar", "noHp": "354730" },
-	{ "nama": "Nurul Aeni", "alamat": "Selogiri", "noHp": "082131313131" },
-	{ "nama": "Lahat", "alamat": "Sampung", "noHp": "128341209" }
-]
+[{"nama":"Shifyan","alamat":"Badegan","noHp":"09203123"},{"nama":"Ahmad","alamat":"Jambon","noHp":"230359204"},{"nama":"Mahmud","alamat":"Bandar","noHp":"354730"},{"nama":"Nurul Aeni","alamat":"Selogiri","noHp":"082131313131"},{"nama":"Lahat","alamat":"Sampung","noHp":"128341209"},{"nama":"Iqbal","alamat":"Badegan","noHp":"20528342-3"},{"nama":"Bustomi","alamat":"Jenangan","noHp":"239039245"}]

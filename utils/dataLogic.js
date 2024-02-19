@@ -33,4 +33,10 @@ const cekDuplikat = (value) => {
 	// cek data melalui pencocokan v.nama dengan value(nama) yang dikirimkan
 	return data.find((v) => v.nama === value);
 };
-module.exports = { loadDatabase, findData, addData, cekDuplikat };
+
+const deleteData = (value) => {
+	const data = loadDatabase();
+	const dataFilter = data.filter((thisData) => thisData.nama !== value);
+	console.log(dataFilter);
+};
+module.exports = { loadDatabase, findData, addData, cekDuplikat, deleteData };

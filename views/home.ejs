@@ -39,6 +39,7 @@
           <th scope="col">Nama</th>
           <th scope="col">Alamat</th>
           <th scope="col">Lihat Data</th>
+          <th scope="col">Hapus Data</th>
         </tr>
       </thead>
       <tbody>
@@ -49,6 +50,9 @@
           <td><%= database[i].alamat %></td>
           <td>
             <a class="btn btn-primary btn-sm" href="./home/<%= database[i].nama %>" role="button">Click Here!!</a>
+          </td>
+          <td>
+            <a class="btn btn-primary btn-sm" href="./home/delete/<%= database[i].nama%>" role="button">Click Here!!</a>
           </td>
         </tr>
         <% }; %>

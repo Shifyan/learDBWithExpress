@@ -4,6 +4,7 @@ const {
 	findData,
 	addData,
 	cekDuplikat,
+	deleteData,
 } = require('./utils/dataLogic');
 const path = require('path');
 const { body, validationResult } = require('express-validator');
@@ -44,10 +45,15 @@ app.post(
 		}
 	},
 );
-// app.get('/home/delete/:nama', (req, res) => {
-// 	let myData = findData(req.params.nama);
-// 	res.render('dataDetail', { myData });
-// });
+app.get('/home/delete/:nama', (req, res) => {
+	let myData = findData(req.params.nama);
+	if (!myData) {
+		res.status(404);
+		res.send('404');
+	} else {
+		deleteData(req.params.nama);
+	}
+});
 app.get('/home/:nama', (req, res) => {
 	let myData = findData(req.params.nama);
 	res.render('dataDetail', { myData });
