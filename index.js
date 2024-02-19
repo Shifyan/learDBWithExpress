@@ -52,6 +52,7 @@ app.get('/home/delete/:nama', (req, res) => {
 		res.send('404');
 	} else {
 		deleteData(req.params.nama);
+		res.redirect('/home');
 	}
 });
 app.get('/home/:nama', (req, res) => {

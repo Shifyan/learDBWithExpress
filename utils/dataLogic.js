@@ -37,6 +37,6 @@ const cekDuplikat = (value) => {
 const deleteData = (value) => {
 	const data = loadDatabase();
 	const dataFilter = data.filter((thisData) => thisData.nama !== value);
-	console.log(dataFilter);
+	saveData(dataFilter);
 };
 module.exports = { loadDatabase, findData, addData, cekDuplikat, deleteData };
