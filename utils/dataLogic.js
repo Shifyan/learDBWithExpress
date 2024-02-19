@@ -28,4 +28,9 @@ const addData = (data) => {
 	oldData.push(data);
 	saveData(oldData);
 };
-module.exports = { loadDatabase, findData, addData };
+const cekDuplikat = (value) => {
+	const data = loadDatabase();
+	// cek data melalui pencocokan v.nama dengan value(nama) yang dikirimkan
+	return data.find((v) => v.nama === value);
+};
+module.exports = { loadDatabase, findData, addData, cekDuplikat };

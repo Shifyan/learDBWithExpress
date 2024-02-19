@@ -1,1 +1,7 @@
-[{"nama":"Shifyan","alamat":"Badegan","noHp":"09203123"},{"nama":"Ahmad","alamat":"Jambon","noHp":"230359204"},{"nama":"Fahmi","alamat":"Sampung","noHp":"456657673"},{"nama":"Nurul","alamat":"Selogiri","noHp":"456867322"},{"nama":"Aeni","alamat":"Selogiri","noHp":"7522535668"},{"nama":"Iqbal","alamat":"Badegan","noHp":"45757864"},{"nama":"Putri","alamat":"Ponorogo","noHp":"4534457"},{"nama":"Mamat","alamat":"Pulung","noHp":"3534654"},{"nama":"Bagus","alamat":"Sambit","noHp":"456094098"},{"nama":"Farhan","alamat":"Sukorejo","noHp":"923809283"},{"nama":"Bagas","alamat":"Pulung","noHp":"234235"}]
+[
+	{ "nama": "Shifyan", "alamat": "Badegan", "noHp": "09203123" },
+	{ "nama": "Ahmad", "alamat": "Jambon", "noHp": "230359204" },
+	{ "nama": "Mahmud", "alamat": "Bandar", "noHp": "354730" },
+	{ "nama": "Nurul Aeni", "alamat": "Selogiri", "noHp": "082131313131" },
+	{ "nama": "Lahat", "alamat": "Sampung", "noHp": "128341209" }
+]
