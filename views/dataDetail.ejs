@@ -51,9 +51,18 @@
 						<%= myData.alamat %>
 					</h6>
 					<p class="card-text"><%= myData.noHp %></p>
-					<a class="btn btn-outline-danger" href="/home" role="button"
-						>Kembali</a
-					>
+					<div>
+						<a class="btn btn-outline-danger" href="/home" role="button"
+							>Kembali</a
+						>
+						<br />
+						<a
+							class="btn btn-outline-success mt-2"
+							href="/home/ubahData/<%= myData.nama %>"
+							role="button"
+							>Ubah Data</a
+						>
+					</div>
 				</div>
 			</div>
 			<% } ;%>

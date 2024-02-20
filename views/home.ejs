@@ -49,10 +49,10 @@
           <td><%= database[i].nama %></td>
           <td><%= database[i].alamat %></td>
           <td>
-            <a class="btn btn-primary btn-sm" href="./home/<%= database[i].nama %>" role="button">Click Here!!</a>
+            <a class="btn btn-primary btn-sm" href="/home/<%= database[i].nama %>" role="button">Click Here!!</a>
           </td>
           <td>
-            <a class="btn btn-danger btn-sm" href="./home/delete/<%= database[i].nama%>" role="button" onclick="confirm(`Apakah Anda yakin untuk menghapus data ini?`)">Click Here!!</a>
+            <a class="btn btn-danger btn-sm" href="/home/delete/<%= database[i].nama%>" role="button" onclick="confirm('Apakah Anda yakin untuk menghapus data ini?')">Click Here!!</a>
           </td>
         </tr>
         <% }; %>

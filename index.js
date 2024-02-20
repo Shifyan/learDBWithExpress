@@ -55,6 +55,17 @@ app.get('/home/delete/:nama', (req, res) => {
 		res.redirect('/home');
 	}
 });
+
+app.post('/home/update', (req, res) => {
+	console.log(req.body);
+	res.redirect('/home/update');
+});
+
+app.get('/home/ubahData/:nama', (req, res) => {
+	let myData = findData(req.params.nama);
+	res.render('ubahData', { myData });
+});
+
 app.get('/home/:nama', (req, res) => {
 	let myData = findData(req.params.nama);
 	res.render('dataDetail', { myData });
