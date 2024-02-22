@@ -1,11 +1,6 @@
 const express = require('express');
-const {
-	loadDatabase,
-	findData,
-	addData,
-	cekDuplikat,
-	deleteData,
-} = require('./utils/dataLogic');
+require('./utils/dbConnect');
+const DataPonorogo = require('./utils/dbLogic');
 const path = require('path');
 const { body, validationResult } = require('express-validator');
 
@@ -16,8 +11,8 @@ const port = 3000;
 app.set('view engine', 'ejs');
 app.use(express.urlencoded({ extended: true }));
 
-app.get('/home', (req, res) => {
-	let database = loadDatabase();
+app.get('/home', async (req, res) => {
+	let database = await DataPonorogo.find();
 	res.render('home', { database });
 });
 
@@ -26,48 +21,52 @@ app.get('/addData', (req, res) => {
 });
 app.post(
 	'/home',
-	body('nama').custom((value) => {
-		let dataDuplikat = cekDuplikat(value);
+	body('nama').custom(async (value) => {
+		let dataDuplikat = await DataPonorogo.findOne({ nama: value });
 		if (dataDuplikat) {
 			throw new Error('Nama Sudah Terdaftar');
 		}
 		return true;
 	}),
-	(req, res) => {
+	async (req, res) => {
 		const err = validationResult(req);
 		if (!err.isEmpty()) {
 			res.status(400).json({ error: err.array() });
 		} else {
 			let rawData = req.body;
 			const newData = Object.assign({}, rawData);
-			addData(newData);
+			await DataPonorogo.insertMany(newData);
+			// addData(newData);
 			res.render('inputSuccess');
 		}
 	},
 );
-app.get('/home/delete/:nama', (req, res) => {
-	let myData = findData(req.params.nama);
+app.get('/home/delete/:nama', async (req, res) => {
+	let myData = await DataPonorogo.findOne({ nama: req.params.nama });
 	if (!myData) {
 		res.status(404);
 		res.send('404');
 	} else {
-		deleteData(req.params.nama);
+		await DataPonorogo.findOneAndDelete({ nama: req.params.nama });
 		res.redirect('/home');
 	}
 });
 
+// Belom diperbaiki
 app.post('/home/update', (req, res) => {
 	console.log(req.body);
 	res.redirect('/home/update');
 });
 
+// Belom diperbaiki
 app.get('/home/ubahData/:nama', (req, res) => {
 	let myData = findData(req.params.nama);
 	res.render('ubahData', { myData });
 });
 
-app.get('/home/:nama', (req, res) => {
-	let myData = findData(req.params.nama);
+app.get('/home/:nama', async (req, res) => {
+	let myData = await DataPonorogo.findOne({ nama: req.params.nama });
+	// console.log(req.params.nama);
 	res.render('dataDetail', { myData });
 });
 

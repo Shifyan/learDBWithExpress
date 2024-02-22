@@ -1,1 +1,5 @@
-[{"nama":"Shifyan","alamat":"Badegan","noHp":"082142527899"},{"nama":"Mamad","alamat":"Sampung","noHp":"7087098353"}]
+[
+	{ "nama": "Shifyan", "alamat": "Badegan", "noHp": "082142527899" },
+	{ "nama": "Mamad", "alamat": "Sampung", "noHp": "7087098353" },
+	{ "nama": "Nurul Aeni", "alamat": "Selogiri", "noHp": "0938912098" }
+]
