@@ -4,6 +4,7 @@ const DataPonorogo = require('./utils/dbLogic');
 const path = require('path');
 const { body, validationResult } = require('express-validator');
 
+// Inisiasi Express dan Pendefinisian Port
 const app = express();
 const port = 3000;
 
@@ -11,14 +12,18 @@ const port = 3000;
 app.set('view engine', 'ejs');
 app.use(express.urlencoded({ extended: true }));
 
+// Masuk ke Halaman Utama
 app.get('/home', async (req, res) => {
 	let database = await DataPonorogo.find();
 	res.render('home', { database });
 });
 
+// Masuk ke Halaman Tambah Data
 app.get('/addData', (req, res) => {
 	res.render('addData');
 });
+
+// Mengambil Data dari Form Tambah Data dan Melakukan input ke MongoDB
 app.post(
 	'/home',
 	body('nama').custom(async (value) => {
@@ -41,6 +46,8 @@ app.post(
 		}
 	},
 );
+
+// Melakukan Delete Data
 app.get('/home/delete/:nama', async (req, res) => {
 	let myData = await DataPonorogo.findOne({ nama: req.params.nama });
 	if (!myData) {
@@ -52,28 +59,33 @@ app.get('/home/delete/:nama', async (req, res) => {
 	}
 });
 
-// Belom diperbaiki
-app.post('/home/update', (req, res) => {
-	console.log(req.body);
-	res.redirect('/home/update');
+// Melakukan POST Update Data
+app.post('/home/update', async (req, res) => {
+	await DataPonorogo.updateOne(
+		{ nama: req.body.oldNama },
+		{ nama: req.body.nama, alamat: req.body.alamat, noHp: req.body.noHp },
+	);
+	res.redirect('/home');
 });
 
-// Belom diperbaiki
-app.get('/home/ubahData/:nama', (req, res) => {
-	let myData = findData(req.params.nama);
+// Masuk ke Halaman Ubah Data
+app.get('/home/ubahData/:nama', async (req, res) => {
+	let myData = await DataPonorogo.findOne({ nama: req.params.nama });
 	res.render('ubahData', { myData });
 });
 
+// Masuk ke Halaman Detail
 app.get('/home/:nama', async (req, res) => {
 	let myData = await DataPonorogo.findOne({ nama: req.params.nama });
-	// console.log(req.params.nama);
 	res.render('dataDetail', { myData });
 });
 
+// Middleware Jika User Masuk ke Rute yang Salah
 app.use((req, res) => {
 	res.status(404);
 	res.send('<h1>Halaman Tidak Ditemukan</h1>');
 });
+
 // Static file view
 app.use(express.static(path.join(__dirname, 'public')));
 app.listen(port, () => {
